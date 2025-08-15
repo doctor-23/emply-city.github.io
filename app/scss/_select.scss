@@ -1,0 +1,334 @@
+@use "mixins";
+
+select.custom-select {
+    width: 100%;
+    height: 48px;
+    padding: 10px;
+    font-size: var(--font-size);
+    color: var(--bg-color);
+    background-color: var(--white);
+    border: 2px solid transparent;
+    outline: none;
+    border-radius: var(--radius-2);
+    transition: border-color .3s ease-in-out;
+    cursor: pointer;
+    appearance: none; /* Отключаем стили по умолчанию (частично работает) */
+    -webkit-appearance: none; /* Для WebKit-браузеров */
+    -moz-appearance: none; /* Для Firefox */
+
+    &:hover, &:focus-visible {
+        border-color: var(--color-1);
+    }
+
+    option {
+        padding: 10px 15px;
+        font-size: var(--font-size);
+        border-color: transparent;
+        border-radius: 0;
+        background-color: var(--bg-color); /* Цвет фона вариантов */
+        color: var(--white); /* Цвет текста */
+        transition: background-color .3s ease-in-out;
+
+        &:hover, &:focus-visible {
+            background-color: var(--color-2-hover);
+        }
+    }
+}
+
+.custom-select {
+    position: relative;
+
+    &:hover, &:focus-visible {
+        .select-title {
+            border-color: var(--color-1);
+        }
+
+        .select-content {
+            border-color: var(--color-1);
+        }
+    }
+
+    &.open {
+        .select-title {
+            border-bottom-color: transparent;
+            border-radius: var(--radius-2) var(--radius-2) 0 0;
+
+            .select-title__icon {
+                transform: rotate(180deg);
+            }
+        }
+
+        .select-content {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .select-content_wrap {
+            @include mixins.fullMobile {
+                animation-name: SelectContentZoomIn;
+            }
+        }
+    }
+
+    &.active {
+        .select-title {
+            color: var(--white);
+        }
+    }
+
+    &.initialized {
+        &::after {
+            content: none;
+        }
+    }
+
+    &::after {
+        content: "▼"; /* Символ стрелки */
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        pointer-events: none;
+        font-size: 12px;
+        color: var(--white);
+    }
+}
+
+.select-title {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    padding: 10px;
+    font-size: var(--font-size);
+    color: var(--white);
+    border: 2px solid #3d4050;
+    border-radius: var(--radius-2);
+    background-color: #393b4b;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color .3s ease-in-out;
+
+    @include mixins.mobile {
+        height: 50px;
+        padding: 0 16px;
+        font-size: 14px;
+    }
+
+    &:hover, &:focus-visible {
+        border-color: var(--color-1);
+    }
+
+    &>* {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.select-title__text {
+    flex-shrink: 0;
+    font-size: inherit;
+    color: inherit;
+    line-height: inherit;
+    user-select: none;
+}
+
+.select-title__icon {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    margin-right: -4px;
+    color: inherit;
+    transition: transform .3s ease-in-out;
+
+    svg {
+        transition: color .3s ease-in-out;
+    }
+}
+
+.select-content {
+    position: absolute;
+    top: calc(100% - 2px);
+    right: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 1px);
+    height: max-content;
+    border: 2px solid #3d4050;
+    border-top: none;
+    border-radius: 0 0 var(--radius-2) var(--radius-2);
+    background-color: var(--bg-color);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity .3s ease-in-out, border-color .3s ease-in-out;
+    overflow: hidden;
+
+    @include mixins.fullMobile {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        z-index: 100;
+        width: 100vw;
+        max-height: none !important;
+        height: 100vh;
+        margin: auto;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        backdrop-filter: none;
+        transition: none;
+    }
+
+    &.no-scroll {
+        .select-content_wrap {
+            overflow-y: hidden;
+        }
+    }
+}
+
+.select-content_overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+    z-index: 99;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+}
+
+.select-content_wrap {
+    padding: 10px 0;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-1) #3D4050;
+    &::-webkit-scrollbar-thumb { background: var(--color-1); border-radius: 3px; }
+    &::-webkit-scrollbar { width: 6px; }
+    &::-webkit-scrollbar-track { background: #3D4050; border-radius: 3px; }
+
+    @include mixins.fullMobile {
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: calc(100vw - 40px);
+        max-height: calc(100vh - 40px);
+        height: max-content;
+        margin: auto;
+        padding: 20px 10px;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 10px;
+        animation-duration: .5s;
+        animation-fill-mode: both;
+        animation-name: SelectContentZoomOut;
+    }
+}
+
+.select-content__wrapper {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+
+    &:focus-visible, &:hover {
+        .select-content__radio {
+            color: var(--color-1)
+        }
+    }
+
+    &.disabled {
+        pointer-events: none;
+    }
+
+    input {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+
+        &:checked ~ .select-content__radio {
+            color: #fff !important;
+            background-color: var(--green) !important;
+        }
+
+        &:disabled {
+            pointer-events: none;
+
+            & ~ .select-content__radio {
+                color: #fff !important;
+                background-color: grey !important;
+                pointer-events: none;
+            }
+        }
+    }
+}
+
+.select-content__radio {
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    user-select: none;
+
+    @include mixins.mobile {
+        font-size: 14px;
+    }
+
+    @include mixins.fullMobile {
+        background-color: rgba(#494544, .3);
+        border: 1px solid rgba(255,255,255,.5);
+        border-radius: 7px;
+    }
+}
+
+@keyframes SelectContentZoomIn {
+    from {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.zoomIn {
+    animation-name: zoomIn;
+}
+
+@keyframes SelectContentZoomOut {
+    from {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.zoomOut {
+    animation-name: zoomOut;
+}
+

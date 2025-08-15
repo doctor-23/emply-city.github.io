@@ -1,0 +1,180 @@
+@use "mixins";
+
+.nav_scroll {
+    .menu {
+        background-color: var(--bg-color);
+
+        .menu__cart {
+            display: flex;
+        }
+
+        .menu__nav {
+            .nav-list {
+                li {
+                    &::after {
+                        @include mixins.mobile {
+                            //transform: translateY(12px);
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+.menu {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+
+    @include mixins.mobile {
+        &:not(.homepage_menu) {
+            display: none;
+        }
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        @include mixins.fullMobile {
+            gap: 15px;
+        }
+    }
+
+    .menu__nav {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        overflow-x: hidden;
+
+
+        .homepage_menu {
+            width: calc(var(--container) + (100vw - var(--container)) / 2);
+
+            .nav-list {
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 176px;
+            height: 24px;
+            margin: auto;
+            background: linear-gradient(270deg, #403c3b 0%, rgba(70, 66, 65, 0) 100%);
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            padding-right: 226px;
+            overflow-x: scroll;
+            scrollbar-width: none;
+            &::-webkit-scrollbar {width: 0;}
+
+            @include mixins.mobile {
+                gap: 25px;
+                padding-right: 0;
+            }
+
+            li {
+                position: relative;
+                flex-shrink: 0;
+                height: 78px;
+                user-select: none;
+
+                @include mixins.mobile {
+                    height: 80px;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    bottom: -2px;
+                    left: 0;
+                    width: 100%;
+                    height: 3px;
+                    background-color: transparent;
+                    transition: background-color .3s ease;
+
+                    @include mixins.mobile {
+                        bottom: 0;
+                    }
+                }
+
+                &.active {
+                    &::after {
+                        background-color: var(--green);
+                    }
+
+                    a {
+                        color: #fff;
+                    }
+                }
+
+                a {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                    color: #CFCFCF;
+                    font-size: 18px;
+                    line-height: normal;
+                    user-select: none;
+                    transition: color .3s ease-in-out;
+
+                    @include mixins.mobile {
+                        font-size: 14px;
+                    }
+
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        z-index: 1;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .menu__icon-scroll {
+        z-index: 1;
+        flex-shrink: 0;
+
+        &.hide, &.hide-on-scroll {
+            display: none !important;
+        }
+
+        @include mixins.tablet {
+            width: 35px;
+            height: 35px;
+        }
+    }
+
+    .menu__cart {
+        display: none;
+    }
+}

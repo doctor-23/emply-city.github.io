@@ -1,0 +1,131 @@
+<div class="modal-wrap">
+    <div class="modal" id="modal_callback">
+        <div class="modal__content">
+            <div class="modal__close">
+                <svg width="17" height="17" class="svg-ico" role="img">
+                    <use xlink:href="./img/icons/sprite.svg#close"></use>
+                </svg>
+            </div>
+
+            <div class="modal__header">
+                <h2 class="modal__title">
+                    Оставить заявку
+                </h2>
+
+                <div class="modal__description">
+                    <p>
+                        Оставьте свои контакты и мы свяжемся с вами!
+                    </p>
+                </div>
+            </div>
+
+            <div class="modal__body">
+                <form
+                        action="#"
+                        class="modal__form"
+                        id="callback_form"
+                        novalidate
+                >
+                    <label class="form__col">
+                        <input
+                                type="text"
+                                class="form-input input-name required"
+                                name="name"
+                                placeholder="Имя *"
+                                required
+                        >
+
+                        <span class="msg msg-error">
+                                Поле является обязательным
+                            </span>
+                        <span class="msg msg-empty">
+                                "Имя" должно быть не менее 2 букв
+                            </span>
+                    </label>
+
+                    <label class="form__col">
+                        <input
+                                type="tel"
+                                class="form-input input-phone required"
+                                name="tel"
+                                placeholder="Телефон *"
+                                required
+                        >
+
+                        <span class="msg msg-error">
+                                Поле является обязательным
+                            </span>
+                        <span class="msg msg-empty">
+                                Неверный формат телефона
+                            </span>
+                    </label>
+
+                    <label class="form__col">
+                            <textarea
+                                    type="text"
+                                    class="form-textarea"
+                                    name="comment"
+                                    placeholder="Комментарий"
+                            ></textarea>
+                    </label>
+
+                    <label class="form__col from__col-submit">
+                        <button type="submit" class="btn form-submit">
+                            Отправить
+                        </button>
+                    </label>
+
+                    <label class="form__col from__agreement">
+                        Нажимая кнопку “Заказать консультацию по оборудованию” вы соглашаетесь с политикой обработки
+                        персональных данных
+                    </label>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal modal-thx" id="modal_success">
+        <div class="modal__content animated zoomIn">
+            <div class="modal__close">
+                <svg width="17" height="17" class="svg-ico" role="img">
+                    <use xlink:href="<?= get_image_path() ?>/icons/sprite.svg#close"></use>
+                </svg>
+            </div>
+
+            <div class="modal__header">
+                <h3 class="modal__title">
+                    Спасибо, ваши данные успешно отправлены.
+                </h3>
+
+                <div class="modal__description">
+                    <p>
+                        Мы свяжемся с вами в ближайшее время.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal modal-thx" id="modal_error">
+        <div class="modal__content animated zoomIn">
+            <div class="modal__close">
+                <svg width="17" height="17" class="svg-ico" role="img">
+                    <use xlink:href="./img/icons/sprite.svg#close"></use>
+                </svg>
+            </div>
+
+            <div class="modal__header">
+                <h3 class="modal__title">
+                    Что-то пошло не так!
+                </h3>
+
+                <div class="modal__description">
+                    <p>
+                        Попробуйте снова или <a href="tel:+7 (902) 976-69-69">позвоните нам</a>!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

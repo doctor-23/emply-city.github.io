@@ -1,0 +1,114 @@
+@use 'mixins';
+
+.hero {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 203px 0 202px;
+    color: var(--color-2);
+    background: var(--white) url('../img/hero-bg.png') center / auto no-repeat;
+    background-size: cover;
+    background-color: #fff;
+
+    @include mixins.tablet {
+        padding: 150px 0;
+    }
+
+    @include mixins.mobile {
+        padding: 100px 0;
+    }
+
+    .container {
+
+    }
+
+    &__title {
+        max-width: 780px;
+        margin-bottom: 80px;
+
+        @include mixins.tablet {
+            max-width: 750px;
+            margin-bottom: 40px;
+        }
+
+        @include mixins.mobile {
+            max-width: 80%;
+            margin-bottom: 30px;
+        }
+    }
+
+    &__text {
+        max-width: 780px;
+        margin-bottom: 10px;
+        font-weight: 700;
+        font-size: 20px;
+
+        @include mixins.tablet {
+            max-width: 750px;
+        }
+
+        @include mixins.mobile {
+            max-width: 80%;
+            font-size: 16px;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 80px;
+
+        @include mixins.tablet {
+            margin-bottom: 40px;
+        }
+
+        @include mixins.mobile {
+            max-width: 80%;
+            margin-bottom: 30px;
+        }
+    }
+
+    &__list-item {
+        display: flex;
+        gap: 1px;
+        font-size: 20px;
+
+        @include mixins.mobile {
+            font-size: 16px;
+        }
+
+        &::before {
+            content: '-';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 25px;
+            height: 22px;
+            transform: translateY(-2.5px);
+        }
+    }
+
+    &__btn-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+
+        @include mixins.tablet {
+            gap: 20px;
+        }
+    }
+
+    &__btn {
+        width: 183px;
+        font-size: 13px;
+        text-transform: uppercase;
+
+        &._link {
+
+        }
+
+        &._more {
+            color: #2a2b30;
+        }
+    }
+}

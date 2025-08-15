@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/icons/favicon.svg">
+    <link rel="stylesheet" href="./css/vendor.min.css">
+    <link rel="stylesheet" href="./css/main.min.css">
+
+    <title>Тестовое задание EmployCity</title>
+</head>
+<body class="@@class">
+
+
+<header id="header_id" class="header">
+    <div class="container">
+        <a href="./" class="logo header__logo">
+            LoremIpsum.<span class="blue-text">Net</span>
+        </a>
+
+        <div class="header__hamburger tablet">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+        </div>
+
+        <nav class="header__nav animated">
+            <svg width="24" height="24" class="svg-ico header__close tablet" role="img">
+                <use xlink:href="./img/icons/sprite.svg#close"></use>
+            </svg>
+
+
+            <ul class="header__nav-list">
+                <li class="header__nav-item active">
+                    <a href="./" class="header__nav-item__link">Главная</a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="#checkout_anchor" class="header__nav-item__link">О нас</a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="#checkout_anchor" class="header__nav-item__link">Цены</a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="#checkout_anchor" class="header__nav-item__link">Оформить заказ</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="main-page">
+
+
+<section class="hero">
+    <div class="container">
+
+        <h1 class="hero__title main-title">
+            <span class="blue-text">Lorem ipsum</span> dolor sit amet
+            consectetur <span class="blue-text">adipiscing</span>
+        </h1>
+
+        <p class="hero__text">
+            At vero eos et accusamus et iusto odio dignissimos ducimus!
+        </p>
+
+        <ul class="hero__list">
+            <li class="hero__list-item">Totam rem aperiam eaque ipsa</li>
+            <li class="hero__list-item">Sit voluptatem accusantium doloremque laudantium</li>
+            <li class="hero__list-item">Sed ut perspiciatis, unde omnis iste natus error</li>
+        </ul>
+
+        <div class="hero__btn-wrapper">
+            <a href="#" class="hero__btn _link btn sm blue">
+                заказать
+            </a>
+
+            <a href="#" class="hero__btn _more btn sm white">
+                подробнее
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="checkout" id="checkout_anchor">
+    <div class="container">
+        <h2 class="second-title checkout__title">
+            Оформление <span class="blue-text">Заказа</span>
+        </h2>
+
+        <p class="checkout__text">
+            Перед заполнением формы ознакомьтесь с нашей схемой работы!
+        </p>
+
+        <div class="checkout__scheme">
+
+            <div class="checkout__scheme-item">
+
+                <div class="item-icon">
+                    <svg width="55" height="55" class="svg-ico" role="img">
+                        <use xlink:href="./img/icons/sprite.svg#search"></use>
+                    </svg>
+                </div>
+
+                <p class="item-text">
+                    Lorem ipsum dolor
+                    sit amet
+                </p>
+
+            </div>
+
+            <div class="checkout__scheme-item">
+
+                <div class="item-icon">
+                    <svg width="55" height="55" class="svg-ico" role="img">
+                        <use xlink:href="./img/icons/sprite.svg#percent"></use>
+                    </svg>
+                </div>
+
+                <p class="item-text">
+                    Сonsecteturadipiscing elit
+                </p>
+
+            </div>
+
+            <div class="checkout__scheme-item">
+
+                <div class="item-icon">
+                    <svg width="55" height="55" class="svg-ico" role="img">
+                        <use xlink:href="./img/icons/sprite.svg#file"></use>
+                    </svg>
+                </div>
+
+                <p class="item-text">
+                    Sed do eiusmod tempor
+                </p>
+
+            </div>
+
+            <div class="checkout__scheme-item">
+
+                <div class="item-icon">
+                    <svg width="55" height="55" class="svg-ico" role="img">
+                        <use xlink:href="./img/icons/sprite.svg#message"></use>
+                    </svg>
+                </div>
+
+                <p class="item-text">
+                    Esse cillum dolore
+                    eu fugiat
+                </p>
+
+            </div>
+
+            <div class="checkout__scheme-item">
+
+                <div class="item-icon">
+                    <svg width="55" height="55" class="svg-ico" role="img">
+                        <use xlink:href="./img/icons/sprite.svg#money"></use>
+                    </svg>
+                </div>
+
+                <p class="item-text">
+                    Excepteur sint occaecat cupidatat non proident
+                </p>
+
+            </div>
+
+        </div>
+
+        <form
+                action="#"
+                class="checkout__form"
+                id="checkout_form"
+                novalidate
+                autocomplete="off"
+                enctype="multipart/form-data"
+        >
+
+            <div class="form-row">
+                <div class="form-label _select">
+                    <select
+                            name="system_type"
+                            id="system_type"
+                            class="custom-select required"
+                            required
+                    >
+                        <option value="">
+                            Выберите тип системы
+                        </option>
+
+                        <option value="1">Lorem ipsum dolor</option>
+                        <option value="2">Lorem ipsum dolor</option>
+                        <option value="3">Lorem ipsum dolor</option>
+                        <option value="4">Lorem ipsum dolor</option>
+                        <option value="5">Lorem ipsum dolor</option>
+                        <option value="6">Lorem ipsum dolor</option>
+                        <option value="7">Lorem ipsum dolor</option>
+                        <option value="8">Lorem ipsum dolor</option>
+                        <option value="9">Lorem ipsum dolor</option>
+                        <option value="10">Lorem ipsum dolor</option>
+                        <option value="11">Lorem ipsum dolor</option>
+                        <option value="12">Lorem ipsum dolor</option>
+                        <option value="13">Lorem ipsum dolor</option>
+                        <option value="14">Lorem ipsum dolor</option>
+                        <option value="15">Lorem ipsum dolor</option>
+                        <option value="16">Lorem ipsum dolor</option>
+                        <option value="17">Lorem ipsum dolor</option>
+                        <option value="18">Lorem ipsum dolor</option>
+                        <option value="19">Lorem ipsum dolor</option>
+                        <option value="20">Lorem ipsum dolor</option>
+                    </select>
+                </div>
+
+                <div class="form-label _input">
+                    <input
+                            id="checkout_email"
+                            type="email"
+                            name="email"
+                            class="form-field _email"
+                            required
+                            placeholder="Ваш E-mail *"
+                            oninput="this.classList.toggle('filled', this.value.length > 0)"
+                    >
+
+                    <label for="checkout_email" class="transform-label">
+                        Ваш E-mail <span class="red">*</span>
+                    </label>
+                </div>
+
+                <div class="form-label _input">
+                    <input
+                            id="checkout_name"
+                            type="text"
+                            name="name"
+                            class="form-field _name"
+                            required
+                            placeholder="Ваше имя *"
+                            oninput="this.classList.toggle('filled', this.value.length > 0)"
+                    >
+
+                    <label for="checkout_name" class="transform-label">
+                        Ваше имя <span class="red">*</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-label _range">
+                    <div class="range-slider">
+                        <div class="range-label">
+                            <label for="rangeInput" class="range-label-text">Sed ut perspiciatis, unde omnis iste
+                                natus</label>
+                            <span class="range-label-value" id="rangeValue">75%</span>
+                        </div>
+                        <input
+                                type="range"
+                                min="0"
+                                max="100"
+                                step="5"
+                                value="75"
+                                class="range-input"
+                                id="rangeInput"
+                                name="range"
+                                required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-label _file">
+                    <div class="file-output">
+                        <div class="file-output__icon"></div>
+                    </div>
+
+                    <label class="file-upload" for="custom_file">
+                        <span class="file-upload__text btn md white">
+                            <span class="file-upload__text-icon">
+                                <svg width="18" height="21" class="svg-ico" role="img">
+                                    <use xlink:href="./img/icons/sprite.svg#file-attach"></use>
+                                </svg>
+                            </span>
+
+                            прикрепить файл
+                        </span>
+
+                        <input
+                                id="custom_file"
+                                hidden=""
+                                type="file"
+                                name="document"
+                                accept=".pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                                required
+                        >
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-row _submit">
+
+                <button type="submit" class="btn md blue form-submit">
+                    Отправить
+                </button>
+            </div>
+
+
+        </form>
+    </div>
+</section>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__col _col-1">
+            <div class="footer__copyright">
+                © 2018 «LoremIpsum.net» Все права защищены.
+            </div>
+        </div>
+
+        <div class="footer__col _separator"></div>
+
+        <div class="footer__col _col-2">
+            <ul class="footer__payments-list">
+
+                <li class="footer__payments-list__item">
+                    <a href="#" target="_blank">
+                        <svg width="20" height="20" class="svg-ico " role="img">
+                            <use xlink:href="./img/icons/sprite.svg#qiwi-wallet"></use>
+                        </svg>
+
+
+                        Qiwi wallet
+                    </a>
+                </li>
+                <li class="footer__payments-list__item">
+                    <a href="#" target="_blank">
+                        <svg width="20" height="20" class="svg-ico " role="img">
+                            <use xlink:href="./img/icons/sprite.svg#yandex-money"></use>
+                        </svg>
+
+
+                        Yandex Money
+                    </a>
+                </li>
+                <li class="footer__payments-list__item">
+                    <a href="#" target="_blank">
+                        <svg width="20" height="20" class="svg-ico " role="img">
+                            <use xlink:href="./img/icons/sprite.svg#webmoney"></use>
+                        </svg>
+
+
+                        Web Money
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="footer__col _separator"></div>
+
+        <div class="footer__col _col-3">
+
+            <a href="mailto:info@ipsum228.com" class="footer__contact">
+                <svg width="20" height="20" class="svg-ico " role="img">
+                    <use xlink:href="./img/icons/sprite.svg#message"></use>
+                </svg>
+
+
+                info@ipsum228.com
+            </a>
+
+            <a href="https://vk.com" target="_blank" class="footer__contact">
+                <svg width="20" height="20" class="svg-ico " role="img">
+                    <use xlink:href="./img/icons/sprite.svg#vk"></use>
+                </svg>
+
+
+                Мы вконтакте
+            </a>
+        </div>
+    </div>
+</footer>
+
+
+    <script src="js/vendor.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,360 @@
+@use "mixins";
+
+.checkout {
+    padding: 120px 0 150px;
+
+    @include mixins.tablet {
+        padding: 80px 0 100px;
+    }
+
+    @include mixins.mobile {
+        padding: 60px 0 80px;
+        }
+
+    .container {
+
+    }
+
+    &__title {
+        margin-bottom: 30px;
+        text-align: center;
+
+        @include mixins.mobile {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__text {
+        max-width: 555px;
+        margin: 0 auto 80px;
+        text-align: center;
+        color: var(--color-7);
+
+        @include mixins.tablet {
+            margin-bottom: 40px;
+        }
+
+        @include mixins.mobile {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__scheme {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 80px;
+
+        @include mixins.tablet {
+            margin-bottom: 40px;
+        }
+
+        @include mixins.mobile {
+            flex-direction: column;
+            gap: 20px;
+            counter-set: step;
+        }
+    }
+
+    &__scheme-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        width: calc(20% - 24px);
+        padding: 0 10px;
+
+        @include mixins.mobile {
+            flex-direction: row;
+            gap: 10px;
+            width: 100%;
+        }
+
+        &:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            top: 48px;
+            right: 0;
+            width: 6px;
+            height: 6px;
+            background-color: #C4C4C4;
+            border-radius: 50%;
+            /* 4 дополнительных точки */
+            box-shadow:
+                    20px 0 #C4C4C4,
+                    40px 0 #C4C4C4,
+                    60px 0 #C4C4C4,
+                    80px 0 #C4C4C4;
+            transform:  translateX(-22px);
+
+            @include mixins.tablet {
+                box-shadow:
+                        20px 0 #C4C4C4,
+                        40px 0 #C4C4C4;
+                transform:  translateX(-2px);
+            }
+
+            @include mixins.mobile {
+                content: none;
+            }
+        }
+
+        .item-icon {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            border: 5px solid #286690;
+            border-radius: 50%;
+            background-color: var(--color-1);
+
+            @include mixins.mobile {
+                width: 60px;
+                height: 60px;
+            }
+
+            svg {
+                @include mixins.mobile {
+                    width: 35px;
+                    height: 35px;
+                }
+            }
+        }
+
+        .item-text {
+            text-align: center;
+            font-size: 16px;
+
+            @include mixins.mobile {
+                text-align: left;
+            }
+
+            &::before {
+                @include mixins.mobile {
+                    content: '0' counter(step) '. ';
+                    counter-increment: step;
+                }
+            }
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+
+            @include mixins.mobile {
+                gap: 20px;
+            }
+
+            &._submit {
+                width: 370px;
+                margin: 0 auto;
+
+                @include mixins.fullMobile {
+                    width: 100%;
+                }
+            }
+        }
+
+        .form-label {
+            width: calc(33.33% - 20px);
+
+            @include mixins.mobile {
+                width: calc(50% - 10px);
+            }
+
+            @include mixins.fullMobile {
+                width: 100%;
+            }
+
+            &._select {
+                @include mixins.mobile {
+                    width: 100%;
+                }
+            }
+
+            &._range {
+                width: calc(66.66% - 10px);
+
+                @include mixins.mobile {
+                    width: calc(50% - 10px);
+                }
+
+                @include mixins.fullMobile {
+                    width: 100%;
+                }
+
+                .range-slider {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    width: 100%;
+                    padding: 20px 0 30px;
+
+                    @include mixins.mobile {
+                        gap: 24px;
+                        padding: 0;
+                    }
+                }
+
+                .range-label {
+                    display: flex;
+                    justify-content: space-between;
+                    height: max-content;
+                    padding: 0;
+                    color: var(--white);
+                    transform: none;
+                }
+
+                .range-label-text {
+                    position: static;
+                    padding: 0;
+                    font-size: var(--font-size);
+                    color: var(--white);
+                    transform: none;
+                }
+
+                .range-label-value {
+                    font-weight: 600;
+                }
+
+                .range-input {
+                    -webkit-appearance: none;
+                    width: 100%;
+                    height: 6px;
+                    border: 1px solid var(--white);
+                    border-radius: 5px;
+                    background-color: #FFFFFFB2;
+                    outline: none;
+
+                    &::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                        width: 28px;
+                        height: 28px;
+                        border: 3px solid var(--color-1);
+                        border-radius: 50%;
+                        background-color: #42A9ED;
+                        cursor: pointer;
+                        transition: border-color 0.3s ease-in-out;
+
+                        @include mixins.mobile {
+                            width: 20px;
+                            height: 20px;
+                        }
+
+                        &:hover, &:focus-visible {
+                            border-color: var(--white);
+                        }
+                    }
+
+                    &::-moz-range-thumb {
+                        width: 28px;
+                        height: 28px;
+                        border: 3px solid var(--color-1);
+                        border-radius: 50%;
+                        background-color: #42A9ED;
+                        cursor: pointer;
+                        transition: border-color 0.3s ease-in-out;
+
+                        @include mixins.mobile {
+                            width: 20px;
+                            height: 20px;
+                        }
+
+
+                        &:hover, &:focus {
+                            border-color: var(--white);
+                        }
+                    }
+                }
+            }
+
+            &._file {
+                @include mixins.mobile {
+                    width: calc(50% - 10px);
+                }
+
+                @include mixins.fullMobile {
+                    width: 100%;
+                }
+
+                .file-output {
+                    position: relative;
+                    width: max-content;
+
+                    &__icon {
+
+                        svg {
+                            width: 48px;
+                            height: 48px;
+                        }
+                    }
+
+                    &__remove {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        width: 26px;
+                        height: 26px;
+                        border: 2px solid transparent;
+                        border-radius: 50%;
+                        background-color: var(--white);
+                        cursor: pointer;
+                        transform: translate(35%, -35%);
+                        transition: border-color 0.3s ease-in-out;
+
+                        &:hover, &:focus-visible {
+                            border-color: var(--color-1);
+
+                            &::after, &::before {
+                                background-color: var(--color-1);
+                            }
+                        }
+
+                        &::after, &::before {
+                            content: "";
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            width: 12px;
+                            height: 2px;
+                            background-color: #000;
+                            transform: translate(-50%, -50%) rotate(45deg);
+                            transition: background-color 0.3s ease-in-out;
+                        }
+
+                        &::before {
+                            transform: translate(-50%, -50%) rotate(-45deg);
+                        }
+                    }
+                }
+
+                .file-upload {
+
+                    &__text {
+                        display: flex;
+                        align-self: center;
+                        gap: 10px;
+                        color: var(--bg-color);
+                        font-size: 15px;
+                        font-weight: 600;
+
+                        &-icon {
+                            color: inherit;
+                            transition: color 0.3s ease-in-out;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

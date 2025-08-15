@@ -1,0 +1,41 @@
+<header id="header_id" class="header">
+    <div class="container">
+        <a href="./" class="logo header__logo">
+            LoremIpsum.<span class="blue-text">Net</span>
+        </a>
+
+        <div class="header__hamburger tablet">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+        </div>
+
+        <nav class="header__nav animated">
+            @@include('./atoms/_svg.atom.html',
+                {
+                    "width": "24",
+                    "height": "24",
+                    "icon": "close",
+                    "class": "header__close tablet"
+                }
+            )
+
+            <ul class="header__nav-list">
+                <li class="header__nav-item active">
+                    <a href="./" class="header__nav-item__link">Главная</a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="#checkout_anchor" class="header__nav-item__link">О нас</a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="#checkout_anchor" class="header__nav-item__link">Цены</a>
+                </li>
+                <li class="header__nav-item">
+                    <a href="#checkout_anchor" class="header__nav-item__link">Оформить заказ</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="main-page">

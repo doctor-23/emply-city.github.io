@@ -1,0 +1,72 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+
+    @font-face {
+        font-family: $font_name;
+        font-display: swap;
+        src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+        font-weight: #{$weight};
+        font-style: #{$style};
+    }
+}
+
+@mixin fullHDPlus() {
+    @media screen and (min-width: 1919.99px) {
+        @content;
+    }
+}
+
+@mixin fullHD() {
+    @media screen and (max-width: 1919.99px) {
+        @content;
+    }
+}
+
+@mixin HD() {
+    @media screen and (max-width: 1440.99px) {
+        @content;
+    }
+}
+
+@mixin laptop() {
+    @media screen and (max-width: 1200.98px) {
+        @content;
+    }
+}
+
+@mixin tablet() {
+    @media screen and (max-width: 1029.98px) {
+        @content;
+    }
+}
+
+@mixin mobile() {
+    @media screen and (max-width: 807.98px) {
+        @content;
+    }
+}
+
+@mixin fullMobile() {
+    @media screen and (max-width: 575.98px) {
+        @content;
+    }
+}
+
+@mixin defaultList() {
+    ul, ol {
+        ul, ol {
+            padding-left: 40px;
+        }
+    }
+
+    ul {
+        list-style: disc inside;
+    }
+
+    ol {
+        list-style: decimal inside;
+    }
+
+    li {
+        display: list-item !important;
+    }
+}
